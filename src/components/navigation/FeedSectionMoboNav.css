@@ -1,0 +1,16 @@
+.feedSectionMobNav_mainDiv{
+    display: none;
+    background-color: white;
+}
+
+.filter_btn{
+    background-color: #F1F3F5;
+}
+
+@media screen and (max-width: 600px) {
+    .feedSectionMobNav_mainDiv{
+        display: flex;
+    }
+
+    
+}

@@ -1,0 +1,31 @@
+.card_profDet img{
+    height: 48px;
+    object-fit: contain;
+}
+.card_Share{
+    display: none;
+}
+.card_view{
+    display: none;
+}
+.card_deskViews{
+    display: flex;
+}
+
+@media screen and (max-width:800px) {
+    .card_mainDiv{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width:426px) {
+    .card_Share{
+        display: flex;
+    }
+    .card_view{
+        display: flex;
+    }
+    .card_deskViews{
+        display: none;
+    }
+}

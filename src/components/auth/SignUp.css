@@ -1,0 +1,103 @@
+.login_mainDiv{
+    background-color: white;
+    /* width: 736px; */
+    height: auto;
+    z-index: 11;
+    border-radius: 8px;
+}
+
+
+
+.signup_input_containers{
+    background-color: #F7F8FA;
+    border: 1px solid #D9D9DB;
+}
+
+.signup_input_containers button{
+    background-color: #F7F8FA;
+    border: none;
+
+}
+
+.signup_inputs input{
+    padding: 10px 15px;
+    background-color: transparent;
+    border: none;
+
+}
+
+.login_top{
+    background-color: #EFFFF4;
+}
+
+.singup_create{
+    font-weight: 700;
+    font-size: 30px;
+    color: #000;
+}
+
+.login_top_text{
+    color: #008A45;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+}
+
+.createAccnt_btn{
+    background-color: #2F6CE5;
+    border-radius: 20px;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    margin-top:10px ;
+}
+.createAccnt_btn_fb{
+    width: 100%;
+    color: black;
+    border: none;
+    padding: 10px 0px;
+    margin-top:10px ;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.createAccnt_btn_google{
+    width: 100%;
+    color: black;
+    border: none;
+    padding: 10px 0px;
+    margin-top:10px ;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.signup_image img{
+    object-fit: contain;
+}
+.signup_already_have{
+    font-size: 13px;
+}
+
+
+@media screen and (max-width:768px){
+    .login_top_text{
+        font-size: 10px;
+    }
+    .singup_create{
+        font-size: 20px;
+
+    }
+    .signup_already_have{
+        font-size: 10px;
+    }
+    
+}
+@media screen and (max-width:426px){
+    .login_mainDiv{
+        display: none;
+    }
+    
+}

@@ -1,0 +1,27 @@
+.moboNav_search{
+    width: 360px;
+}
+.mobileNav_mainDiv{
+    display: none;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 800px){
+	.mobileNav_mainDiv{
+        display: flex;
+        z-index: 10;
+    }
+    .moboNav_search{
+        width: 100px;
+    }
+    .mainlogo{
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 350px){
+    .mainlogo{
+        width: 70px;
+    }
+}
