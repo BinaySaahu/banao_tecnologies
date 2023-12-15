@@ -102,8 +102,4 @@ dl, ol, ul {
         padding-left:0px !important;
         padding-right:0px !important ;
     }
-    .login_modal{
-        align-items: flex-end;
-        padding: 0;
-    }
 }
