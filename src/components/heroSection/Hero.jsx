@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-// import hero_img from '../../images/Rectangle2.png'
-import img from "../../assets/rectangle2.png";
-import cross from "../../assets/baseline-cancel-24px.svg";
+import React from "react";
 
 import "./Hero.css";
-import SignUp from "../auth/SignUp";
 
 function Hero({setViewSignup,viewSignUp}) {
   return (

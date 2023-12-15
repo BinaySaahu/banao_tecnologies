@@ -7,7 +7,7 @@
 }
 .signUp_cancel{
     display: flex;
-    align-items: start;
+    align-items: flex-start;
 }
 .signup_container{
     width: fit-content;

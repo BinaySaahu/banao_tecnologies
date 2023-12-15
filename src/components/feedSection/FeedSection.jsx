@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "./Card";
 import edit from "../../assets/baseline-edit-24px.svg";
 import location from "../../assets/outline-location_on-24px 2.svg";
