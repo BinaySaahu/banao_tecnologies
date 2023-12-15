@@ -8,6 +8,27 @@ import google from "../../assets/search.png";
 const SignUp = () => {
   const [view, setView] = useState(false);
   const [showLogin,setLogin] = useState(false)
+  const [user,setUser] = useState({
+    first_name:"",
+    last_name:"",
+    email:"",
+    password:"",
+    confirm_password:""
+
+  })
+  const handleSubmit = ()=>{
+      const o = JSON.stringify(user)
+      localStorage.setItem('user',o)
+      window.location.reload()
+  }
+
+  const dataInp = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value
+    setUser({...user,[name]:value})
+
+  }
+  console.log(user)
   return (
     <div className="login_mainDiv">
       <div className="login_top">
@@ -35,22 +56,25 @@ const SignUp = () => {
           {!showLogin && <div className="d-flex w-100 signup_input_containers">
             <input
               type="text"
+              name="first_name"
               className="w-100"
               placeholder="First name"
               style={{ border: "1px solid #D9D9DB" }}
+               onChange={dataInp}
             />
-            <input type="text" className="w-100" placeholder="Last name" />
+            <input type="text" className="w-100" placeholder="Last name" name="last_name"  onChange={dataInp}/>
           </div>}
           <div className="w-100 signup_input_containers">
-            <input type="email" className="w-100" placeholder="Email" />
+            <input type="email" className="w-100" placeholder="Email" name="email" onChange={dataInp}/>
           </div>
           <div className="w-100 d-flex signup_input_containers">
             <input
               type={view ? "text" : "password"}
-              name=""
+              name="password"
               id=""
               className="w-100"
               placeholder="Password"
+              onChange={dataInp}
             />
             <button className="px-1" onClick={() => setView(!view)}>
               <img src={psswrd} alt="" />
@@ -59,13 +83,14 @@ const SignUp = () => {
           {!showLogin&&<div className="w-100 signup_input_containers">
             <input
               type="password"
-              name=""
+              name="confirm_password"
               id=""
               className="w-100"
               placeholder="Confirm password"
+              onChange={dataInp}
             />
           </div>}
-          <button className="createAccnt_btn">{showLogin?"Sign in":"Create Account"}</button>
+          <button className="createAccnt_btn" onClick={handleSubmit}>{showLogin?"Sign in":"Create Account"}</button>
           <button className="createAccnt_btn_fb">
             <img src={fb} alt="" />
             Sign up with facebook

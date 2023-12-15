@@ -4,12 +4,22 @@ import edit from "../../assets/baseline-edit-24px.svg";
 import location from "../../assets/outline-location_on-24px 2.svg";
 import dropDown from "../../assets/baseline-arrow_drop_down-24px.png";
 import group from "../../assets/baseline-group_add-24px.png";
-
+import leaveGrp from '../../assets/outline-exit_to_app-24px.svg'
 import "./FeedSection.css";
 import FeedSectionMobNav from "../navigation/FeedSectionMobNav";
+import RecommendedGroups from "../groups/RecommendedGroups";
 
+const FeedSection = ({ setViewSignup, viewSignUp, isLoggedin }) => {
+  const handleClick = ()=>{
+    if(!isLoggedin){
+      setViewSignup(!viewSignUp)
 
-const FeedSection = ({setViewSignup,viewSignUp}) => {
+    }else{
+      localStorage.removeItem('user')
+      window.location.reload()
+
+    }
+  }
   return (
     <div className="d-flex flex-column feedSection_mainDiv py-4 m-auto">
       <FeedSectionMobNav />
@@ -32,11 +42,22 @@ const FeedSection = ({setViewSignup,viewSignUp}) => {
           </button>
           <button
             className="py-2 px-3 border border-0"
-            style={{ backgroundColor: "#2F6CE5", color: "white" }}
-            onClick={() => setViewSignup(!viewSignUp)}
+            style={{ backgroundColor: isLoggedin?"#EDEEF0":"#2F6CE5", color:isLoggedin?"black": "white" }}
+            onClick={handleClick}
           >
             {" "}
-            <img src={group} alt="" className="mx-1" /> Join group
+            <img
+              src={
+                isLoggedin ? (
+                  leaveGrp
+                ) : (
+                  group
+                )
+              }
+              alt=""
+              className="mx-1"
+            />{" "}
+            {isLoggedin?"Leave group":"Join group"}
           </button>
         </div>
       </div>
@@ -55,7 +76,10 @@ const FeedSection = ({setViewSignup,viewSignUp}) => {
           className="feedSection_addr d-flex justify-content-center"
           style={{ width: "40%" }}
         >
-          <div className="flex-column py-5 feedsection_addr" style={{ width: "70%" }}>
+          <div
+            className="flex-column py-5 feedsection_addr"
+            style={{ width: "70%" }}
+          >
             <div className="d-flex justify-content-between border-bottom py-2">
               <div className="d-flex justify-content-between ">
                 <img src={location} alt="" />
@@ -72,10 +96,10 @@ const FeedSection = ({setViewSignup,viewSignUp}) => {
                 personalised experience.
               </p>
             </div>
+            {isLoggedin&&<RecommendedGroups/>}
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

@@ -2,7 +2,16 @@ import React from "react";
 
 import "./Hero.css";
 
-function Hero({setViewSignup,viewSignUp}) {
+function Hero({setViewSignup,viewSignUp,isLoggedin}) {
+  const handleClick = ()=>{
+    if(!isLoggedin){
+      setViewSignup(!viewSignUp)
+    }
+    else{
+      localStorage.removeItem('user')
+      window.location.reload();
+    }
+  }
   return (
     <div
       className="mainDivHeroSection d-flex align-items-end justify-content-end flex-column"
@@ -24,8 +33,8 @@ function Hero({setViewSignup,viewSignUp}) {
           </svg>
         </div>
         <div>
-          <button className="border border-2 rounded-2 py-2 px-3 joinMobo_btn" onClick={()=>setViewSignup(!viewSignUp)}>
-            Join group
+          <button className="border border-2 rounded-2 py-2 px-3 joinMobo_btn" onClick={handleClick}>
+            {isLoggedin?"Leave group":"Join group"}
           </button>
         </div>
       </div>

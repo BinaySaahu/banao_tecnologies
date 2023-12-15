@@ -1,9 +1,10 @@
 import React from 'react'
 import logo from '../../assets/mainLogo.png'
 import search from '../../assets/search_logo.png'
+import profileImage from '../../assets/—Pngtree—avatar icon profile icon member_5247852.png'
 import './MobileNav.css'
 
-function MobileNav() {
+function MobileNav({isLoggedin}) {
   return (
     <div className="justify-content-between px-4 py-2 align-items-center mobileNav_mainDiv position-sticky top-0 left-0 w-100">
         <div className = "w-100 text-start">
@@ -14,6 +15,9 @@ function MobileNav() {
                 <img src={search} alt="" className='h-75 text-start' style={{objectFit:'contain'}}/>
                 <input type="text" placeholder='Search for your favorite groups in ATG' className='w-100 border-0 text-center px-2 fw-semibold' style={{backgroundColor:"#F2F2F2"}}/>
             </div>
+        </div>
+        <div>
+          {isLoggedin && <img src={profileImage} alt="" style={{width:'39px',objectFit:'contain'}}/>}
         </div>
     </div>
   )

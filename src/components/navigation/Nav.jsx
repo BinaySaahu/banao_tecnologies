@@ -2,10 +2,12 @@ import React from 'react'
 import logo from '../../assets/mainLogo.png'
 import search from '../../assets/search_logo.png'
 import dropDown from '../../assets/baseline-arrow_drop_down-24px.png'
+import profileImage from '../../assets/—Pngtree—avatar icon profile icon member_5247852.png'
 import './Nav.css'
 
 
-function Nav() {
+function Nav({user}) {
+
   return (
     <div className="justify-content-between px-4 py-2 align-items-center nav_mainDiv">
         <div className = "w-100 text-start">
@@ -19,7 +21,7 @@ function Nav() {
             </div>
         </div>
         <div className = "w-100 text-end d-flex align-items-center justify-content-end my-0">
-            <p className='d-flex align-items-center my-0'>Create a account <span className='text-primary fw-semibold'>&nbsp;It's free!</span> <img src={dropDown} alt="" /></p>
+            {user?<p className='d-flex align-items-center my-0'><img src={profileImage} alt="" style={{width:'39px',objectFit:'contain'}}/>{user}</p>:<p className='d-flex align-items-center my-0'>Create a account <span className='text-primary fw-semibold'>&nbsp;It's free!</span> <img src={dropDown} alt="" /></p>}
         </div>
       
     </div>

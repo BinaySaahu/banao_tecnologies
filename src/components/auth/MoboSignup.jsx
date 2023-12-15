@@ -7,6 +7,26 @@ import "./MoboSignup.css";
 const MoboSignup = ({setViewSignup,viewSignUp}) => {
   const [view, setView] = useState(false);
   const [showLogin, setLogin] = useState(false);
+  const [user,setUser] = useState({
+    first_name:"",
+    last_name:"",
+    email:"",
+    password:"",
+    confirm_password:""
+
+  })
+  const handleSubmit = ()=>{
+      const o = JSON.stringify(user)
+      localStorage.setItem('user',o)
+      window.location.reload()
+  }
+
+  const dataInp = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value
+    setUser({...user,[name]:value})
+
+  }
   return (
     <div className="msignup_mainDiv py-3 px-4">
       <div className="signup_createAccnt d-flex justify-content-between my-3">
@@ -43,20 +63,21 @@ const MoboSignup = ({setViewSignup,viewSignUp}) => {
                 className="w-100"
                 placeholder="First name"
                 style={{ border: "1px solid #D9D9DB" }}
+                name="first_name"
               />
-              <input type="text" className="w-100" placeholder="Last name" />
+              <input type="text" className="w-100" placeholder="Last name" name="last_name"/>
             </div>
           )}
           <div className="w-100 signup_input_containers">
-            <input type="email" className="w-100" placeholder="Email" />
+            <input type="email" className="w-100" placeholder="Email"  onChange={dataInp} name="email"/>
           </div>
           <div className="w-100 d-flex signup_input_containers">
             <input
               type={view ? "text" : "password"}
-              name=""
+              name="password"
               id=""
               className="w-100"
-              placeholder="Password"
+              placeholder="Password" onChange={dataInp}
             />
             <button className="px-1" onClick={() => setView(!view)}>
               <img src={psswrd} alt="" />
@@ -66,7 +87,7 @@ const MoboSignup = ({setViewSignup,viewSignUp}) => {
             <div className="w-100 signup_input_containers">
               <input
                 type="password"
-                name=""
+                name="confirm_password"
                 id=""
                 className="w-100"
                 placeholder="Confirm password"
@@ -74,7 +95,7 @@ const MoboSignup = ({setViewSignup,viewSignUp}) => {
             </div>
           )}
           <div className="d-flex justify-content-between w-100 my-1">
-            <button className="createAccnt_btn w-50">
+            <button className="createAccnt_btn w-50" onClick={handleSubmit}>
               {showLogin ? "Sign in" : "Create Account"}
             </button>
             <p className="w-50 text-end my-0 d-flex align-items-center justify-content-end" onClick={()=>setLogin(!showLogin)} style={{textDecoration:'underline'}}>
