@@ -21,7 +21,7 @@ function App() {
       <FeedSection setViewSignup={setViewSignup} viewSignUp={viewSignUp} />
       {viewSignUp && (
         <div className="login_modal">
-          <div className="signup_container">
+          <div className="signup_container w-100">
             <SignUp />
             <MoboSignup setViewSignup={setViewSignup} viewSignUp={viewSignUp} />
             <div className="signUp_cancel h-100 px-2">
